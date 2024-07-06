@@ -1,4 +1,10 @@
 import mongoose from "mongoose";
+import Category from "./categoryModel.js";
+
+const locationSchema = mongoose.Schema({
+  lat: String,
+  long: String,
+});
 
 const eventSchema = mongoose.Schema(
   {
@@ -24,7 +30,6 @@ const eventSchema = mongoose.Schema(
     },
     image: {
       type: String,
-      required: [true, "image is required"],
     },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
@@ -37,16 +42,15 @@ const eventSchema = mongoose.Schema(
         ref: "User",
       },
     ],
+    category: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
   }
 );
-
-const locationSchema = mongoose.Schema({
-  lat: String,
-  long: String,
-});
 
 const Event = mongoose.model("eventSchema", eventSchema);
 export default Event;
