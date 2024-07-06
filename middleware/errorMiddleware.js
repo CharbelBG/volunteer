@@ -14,7 +14,7 @@ const errorHandler = (err, req, res, next) =>{
     //try to get a user with an objectId that does not exist
     if(err.name === 'CastError' && err.kind === 'ObjectId'){
         statusCode = 404;
-        message = 'Recource not found';
+        message = 'Resource not found';
     }
     res.status(statusCode).json({
         message

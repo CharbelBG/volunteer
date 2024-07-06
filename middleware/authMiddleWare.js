@@ -18,7 +18,7 @@ const protect = asyncHandler(async (req, res, next) => {
     next();
   } catch (err) {
     res.status(401);
-    throw new Error("Ivalid token");
+    throw new Error("Invalid token");
   }
 });
 export { protect };
